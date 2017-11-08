@@ -1,6 +1,7 @@
 package ejercicios;
 
 import excepciones.ExcepcionSimpatica;
+import excepciones.MiException;
 
 /**
  * Excepciones
@@ -8,15 +9,18 @@ import excepciones.ExcepcionSimpatica;
  */
 public class TrabajoPractico2 {
 
-    public void ejercicio1() {
+    public void ejercicio1() throws ExcepcionSimpatica {
         int[] array = new int[20];
         array[-7] = 24;
+        System.out.println("No tengo que llegar hasta aca");
     }
 
     public void ejercicio2() {
         try {
             int[] array = new int[20];
+            int suma = 2 / 0;
             array[50] = 24;
+            System.out.println("no debo llegar aca");
             // Instrucciones cuando no hay una excepción
         } catch (ArrayIndexOutOfBoundsException ex) {
             // Instrucciones cuando se produce una excepcion
@@ -38,16 +42,17 @@ public class TrabajoPractico2 {
             s.equals("QQQQ");
         } catch (ArrayIndexOutOfBoundsException ex) {
             System.out.println(" Error de índice en un array: " + ex);
-        } catch (ArithmeticException ex) {
-            System.out.println(" Error matematico: " + ex);
         } catch (Exception ex) {
-            System.out.println(" Error matematico: " + ex);
+            System.out.println(" Error general: " + ex);
         } 
     }
     
     public void ejercicio4() throws Exception {
         System.out.println("Generando una excepcion");
-        throw new Exception("Soy la excepcion");
+        Exception ex = new Exception("Soy la excepcion");
+        System.out.println("hola");
+        
+        throw ex;        
     }
     
     /**
@@ -66,6 +71,14 @@ public class TrabajoPractico2 {
      * Crear una excepcion propia y capturarla y mostrar su contenido.
      */
     public void ejercicio6() {
-        
+        try{
+            throw new MiException("EXCEPTION LOCA");
+        }catch(MiException ex){
+            System.out.println("Exception Loca"+ex);
+        }
+    }
+    
+    public void ejercicio7() throws MiException{
+        throw new MiException("EXCEPTION LOCA");
     }
 }

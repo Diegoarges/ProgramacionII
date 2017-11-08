@@ -60,13 +60,51 @@ public class TrabajoPractico1 {
      * Crear un arreglo de numeros enteros del 1 al 5, recorrerlos y mostralos de las 2 formas
      */
     public void ejercicio3() {
+        int[] numero = new int[5];
+        numero[0]=6;
+        numero[1]=50;
+        numero[2]=14;
+        numero[3]=32;
+        numero[4]=168;
         
+        System.out.println("\nMuestra Tipo 1");
+        for (int i = 0; i < numero.length; i++) {
+            int numeros = numero[i];
+            System.out.println(numeros);
+        }
+            
+        System.out.println("\nMuestra Tipo 2");
+        for (int numeros : numero) {
+            System.out.println(numeros);
+        }
     }
     
     /**
      * Crear una lista de numeros enteros del 1 al 5, recorrerlos y mostarlos de las 3 formas
      */
     public void ejercicio4() {
+        List<Integer> numero = new ArrayList();
+        numero.add(21);
+        numero.add(23);
+        numero.add(210);
+        numero.add(98);
+        numero.add(65);
         
+        System.out.println("\nLista Tipo 1");
+        for (int i = 0; i < numero.size(); i++) {
+            int numeros = numero.get(i);
+            System.out.println(numeros);
+        }
+           
+        System.out.println("\nLista Tipo 2");
+        for (int numeros : numero) {
+            System.out.println(numeros);
+        }
+        
+        System.out.println("\nLista Tipo 3");
+        Iterator<Integer> iterador = numero.iterator();
+        while(iterador.hasNext()) {
+            System.out.println(iterador.next());
+        }
     }
 }

@@ -64,7 +64,7 @@ public class TrabajoPractico3 {
         listaDetalles.add(detalle1);
         listaDetalles.add(detalle2);
         
-        DetallePedido detalle = listaDetalles.get(1);
+       /* DetallePedido detalle = listaDetalles.get(1);
         
         // Ejemplo de lista sin tipo
         List listaDetalles2 = new ArrayList();
@@ -72,13 +72,40 @@ public class TrabajoPractico3 {
         listaDetalles2.add("Cualquier cosa");        
         DetallePedido detalleEnLista = (DetallePedido) listaDetalles2.get(0);
         
-        
+        */
         Pedido pedido1 = new Pedido();
         pedido1.setCliente(cliente);
         pedido1.setFecha(new Date());
         pedido1.setDetalles(listaDetalles);
         
-        return pedido1;
+        return pedido1;        
+    }
+    
+    /**
+     * LLamar al metodo del ejercicio 2 para crear un pedido completo
+     * y agregar un nuevo detalle que incluya una mercaderia nueva
+     */
+    public Pedido ejercicio3() {
+        Mercaderia mercaderia3=new Mercaderia();
+        mercaderia3.setCodigo("COD003");
+        mercaderia3.setNombre("Fideos");
+        mercaderia3.setPeso(1);
+        mercaderia3.setValor(2.5f);
         
+        DetallePedido pedido3=new DetallePedido();
+        pedido3.setMercaderia(mercaderia3);
+        pedido3.setCantidad(3);
+        List<DetallePedido>listado=new ArrayList();
+               
+        Pedido pedido=ejercicio2();
+        pedido.getDetalles().add(pedido3);
+               
+         for(int i=0;i<pedido.getDetalles().size();i++) {
+            
+            System.out.println("Cliente: " + pedido.getDetalles().get(i).getMercaderia().getNombre());
+            System.out.println("\nNombre: " + pedido.getDetalles().get(i).getCantidad());
+          
+        }
+        return pedido;
     }
 }
