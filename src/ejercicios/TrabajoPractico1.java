@@ -105,6 +105,7 @@ public class TrabajoPractico1 {
         Iterator<Integer> iterador = numero.iterator();
         while(iterador.hasNext()) {
             System.out.println(iterador.next());
+            
         }
     }
 }
